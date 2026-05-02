@@ -1,4 +1,4 @@
-# Two services: backend API on 5000, frontend (nginx) on 80
+# Two services: backend API on 5003, frontend (nginx) on 5173
 services:
   backend:
     build: ./server
@@ -7,13 +7,14 @@ services:
     env_file:
       - ./server/.env        
     ports:
-      - "5000:5000"
+      - "5003:5003"
+    
 
   frontend:
     build:
       context: ./client
       args:
-        VITE_API_URL: http://3.26.242.54:5000/api
+        VITE_API_URL: http://localhost:5003/api
     container_name: frontend
     restart: always
     ports:
