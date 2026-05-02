@@ -61,7 +61,9 @@ jobs:
 
       - name: Write SSH key
         run: |
-          cat "${EC2_KEY}" > ec2_key.pem
+          cat << EOF > ec2_key.pem
+          ${{ secrets.EC2_KEY }}
+          EOF
           chmod 600 ec2_key.pem
         env:
           EC2_KEY: ${{ secrets.EC2_KEY }}
