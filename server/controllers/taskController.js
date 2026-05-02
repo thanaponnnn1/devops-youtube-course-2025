@@ -1,5 +1,4 @@
-const Task = require('../models/Task');
-//i love tt
+import Task from '../models/Task.js';
 // Get all tasks
 const getAllTasks = async (req, res) => {
   try {
@@ -85,8 +84,7 @@ const deleteTask = async (req, res) => {
     });
   }
 };
-
-module.exports = {
+export {
   getAllTasks,
   createTask,
   deleteTask,
