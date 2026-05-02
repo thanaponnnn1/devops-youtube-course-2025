@@ -1,2 +1,4 @@
 node_modules/
 .env
+keypair1.pem
+keypair1.pem.pub
