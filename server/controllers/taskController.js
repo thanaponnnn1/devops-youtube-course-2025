@@ -1,5 +1,5 @@
 const Task = require('../models/Task');
-
+//i love tt
 // Get all tasks
 const getAllTasks = async (req, res) => {
   try {
@@ -27,7 +27,7 @@ const createTask = async (req, res) => {
     if (!title || !description) {
       return res.status(400).json({
         success: false,
-        message: 'Title and description are required',
+        message: 'Title and description are togo',
       });
     }
 
