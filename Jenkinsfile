@@ -30,8 +30,7 @@ EOF
     stage('Build Docker Images') {
       steps {
         sh '''
-          echo "Clearing old containers..."
-          docker compose down || true
+          
           echo "Building backend image..."
           docker build -t $BACKEND_IMAGE ./server
 
