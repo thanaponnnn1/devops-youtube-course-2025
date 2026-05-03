@@ -32,7 +32,6 @@ EOF
         sh '''
           echo "Clearing old containers..."
           docker compose down || true
-          
           echo "Building backend image..."
           docker build -t $BACKEND_IMAGE ./server
 
@@ -45,6 +44,9 @@ EOF
     stage('Run with Docker Compose') {
       steps {
         sh '''
+          echo "Clearing old containers..."
+          docker compose down || true  
+
           echo "Starting MERN stack with Docker Compose..."
           docker compose up -d
 
