@@ -9,7 +9,9 @@ services:
       - mern-net
 
   backend:
-    image: mern-backend:jenkins   
+    build: 
+      context: ./server
+      dockerfile: Dockerfile
     container_name: backend
     restart: unless-stopped
     env_file:
@@ -22,7 +24,11 @@ services:
       - mern-net
 
   frontend:
-    image: mern-frontend:jenkins   
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:5003/api
     container_name: frontend
     restart: unless-stopped
     ports:
