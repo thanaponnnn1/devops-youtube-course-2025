@@ -43,7 +43,10 @@ EOF
     stage('Run with Docker Compose') {
       steps {
         sh '''
-          echo "Clearing old containers..."
+          echo "Clearing old containers explicitly..."
+          # เพิ่มคำสั่งนี้เพื่อบังคับลบ container ที่ชื่อซ้ำออกไปให้หมดก่อน
+          docker rm -f backend frontend mongodb || true
+          
           docker compose down || true  
 
           echo "Starting MERN stack with Docker Compose..."
@@ -51,7 +54,7 @@ EOF
 
           echo "Showing running containers..."
           docker ps
-
+          
           echo "===== Backend Logs ====="
           docker logs backend || true
 
